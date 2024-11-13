@@ -572,5 +572,3 @@ const coreWorkouts = {
         ]
     }
 };
-
-module.exports = { coreWorkouts };
