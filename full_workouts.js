@@ -287,9 +287,11 @@ const fullWorkouts = {
                         ]
                     }
                 ]
-            },
-            
-            workout9: {
+            }
+        ]
+    },
+
+    workout9: {
         title: "WORKOUT 9",
         sections: [
             {
