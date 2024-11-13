@@ -1,4 +1,4 @@
-const fullBodyWorkouts_part1 = {
+const fullWorkouts = {
     workout1: {
         title: "WORKOUT 1",
         circuits: [
@@ -289,8 +289,7 @@ const fullBodyWorkouts_part1 = {
                 ]
             },
             
-            const fullBodyWorkouts_part2 = {
-    workout9: {
+            workout9: {
         title: "WORKOUT 9",
         sections: [
             {
