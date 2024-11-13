@@ -113,6 +113,9 @@
             }
 
             function displayWorkout(exercises, type) {
+                // Make workout display visible
+                workoutDisplay.classList.add('active');
+                
                 // Update workout title
                 workoutTitle.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Body Workout`;
 
