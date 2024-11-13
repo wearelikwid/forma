@@ -1,4 +1,4 @@
-const coreWorkouts_part1 = {
+const coreWorkouts = {
     workout1: {
         title: "WORKOUT 1",
         type: "Complete all exercises",
@@ -572,3 +572,5 @@ const coreWorkouts_part1 = {
         ]
     }
 };
+
+module.exports = { coreWorkouts };
