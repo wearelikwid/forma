@@ -290,6 +290,10 @@ const upperWorkouts_part1 = {
                     "Dips",
                     "Cable face pull"
                 ]
+            }
+        ]
+    },
+                    
     workout9: {
         title: "WORKOUT 9",
         circuits: [
