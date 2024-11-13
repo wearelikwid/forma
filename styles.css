@@ -1,0 +1,179 @@
+:root {
+    --primary-color: #8B5CF6;
+    --background-color: #1a1a1a;
+    --card-color: #2a2a2a;
+    --text-color: #ffffff;
+    --success-color: #4CAF50;
+    --border-color: #3a3a3a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--background-color);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Workout Selector */
+.workout-selector {
+    background-color: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.workout-type-btn {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.workout-type-btn:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(139, 92, 246, 0.1);
+}
+
+.workout-type-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.generate-btn {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.generate-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Workout Display */
+.workout-display {
+    background-color: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    display: none;
+}
+
+.workout-display.active {
+    display: block;
+}
+
+.workout-display h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+/* Workout Content Styling */
+#workoutContent {
+    font-size: 0.95rem;
+}
+
+.circuit-title {
+    color: var(--primary-color);
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.exercise-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.exercise-item:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .workout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .workout-selector,
+    .workout-display {
+        padding: 1rem;
+    }
+}
+
+/* Status Badge */
+.completed-badge {
+    background-color: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    float: right;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.workout-display.active {
+    animation: fadeIn 0.3s ease-out;
+}
