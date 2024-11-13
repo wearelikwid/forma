@@ -1,4 +1,4 @@
-const upperWorkouts_part1 = {
+const upperWorkouts = {
     workout1: {
         title: "WORKOUT 1",
         circuits: [
