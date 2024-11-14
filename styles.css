@@ -20,48 +20,30 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styles */
-.header {
-    background-color: var(--background-color);
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.header h1 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-/* Container */
 .container {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-/* Workout Selector */
-.workout-selector {
-    background-color: var(--card-color);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    border: 1px solid var(--border-color);
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
 }
 
-.workout-grid {
+.workout-buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Buttons */
 .workout-type-btn {
-    background-color: var(--background-color);
+    background-color: var(--card-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
-    padding: 0.8rem 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
@@ -70,7 +52,6 @@ body {
 
 .workout-type-btn:hover {
     border-color: var(--primary-color);
-    background-color: rgba(139, 92, 246, 0.1);
 }
 
 .workout-type-btn.active {
@@ -79,15 +60,15 @@ body {
 }
 
 .generate-btn {
+    width: 100%;
     background-color: var(--success-color);
-    color: white;
+    color: var(--text-color);
     border: none;
     padding: 1rem;
     border-radius: 8px;
     cursor: pointer;
-    width: 100%;
     font-size: 1rem;
-    font-weight: 500;
+    margin-bottom: 1.5rem;
     transition: opacity 0.3s ease;
 }
 
@@ -96,103 +77,62 @@ body {
     cursor: not-allowed;
 }
 
-/* Workout Display */
 .workout-display {
     background-color: var(--card-color);
+    border-radius: 8px;
     padding: 1.5rem;
-    border-radius: 12px;
-    margin-top: 1rem;
-    border: 1px solid var(--border-color);
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    margin-bottom: 1.5rem;
+    display: none;
 }
 
 .workout-display.active {
-    opacity: 1;
-    visibility: visible;
+    display: block;
     animation: fadeIn 0.3s ease-out;
 }
 
 .workout-display h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
-    font-size: 1.25rem;
 }
 
-/* Exercise List Styling */
-.exercise-list {
+.workout-display h3 {
+    color: var(--text-color);
+    margin: 1rem 0 0.5rem;
+}
+
+.workout-display p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.workout-display ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0.5rem 0;
 }
 
-.exercise-item {
-    display: flex;
-    align-items: flex-start;
-    padding: 1rem;
+.workout-display li {
+    padding: 0.5rem;
+    border-radius: 4px;
     margin-bottom: 0.5rem;
     background-color: var(--background-color);
-    border-radius: 8px;
+}
+
+.circuit, .section {
     border: 1px solid var(--border-color);
-    transition: transform 0.2s ease;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
-.exercise-item:hover {
-    transform: translateX(5px);
-}
-
-.exercise-item:last-child {
-    border-bottom: none;
-}
-
-.exercise-number {
-    background-color: var(--primary-color);
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    margin-right: 1rem;
-    flex-shrink: 0;
-}
-
-.exercise-details {
-    flex-grow: 1;
-}
-
-.exercise-details h3 {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--text-color);
-}
-
-.exercise-details p {
-    margin: 0.25rem 0 0 0;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.exercise-notes {
-    margin-top: 0.5rem;
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* Print Button Styling */
 .print-workout-btn {
+    width: 100%;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-color);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 1.5rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
@@ -200,27 +140,6 @@ body {
     background-color: #7c4deb;
 }
 
-/* Loading State */
-.generate-btn.loading {
-    position: relative;
-    color: transparent;
-}
-
-.generate-btn.loading::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    border-top-color: transparent;
-    animation: spin 1s linear infinite;
-    transform: translate(-50%, -50%);
-}
-
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -232,91 +151,42 @@ body {
     }
 }
 
-@keyframes spin {
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
-/* Focus States for Accessibility */
-.workout-type-btn:focus,
-.generate-btn:focus,
-.print-workout-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
-}
-
-/* Responsive Design */
 @media (max-width: 600px) {
-    .workout-grid {
+    .workout-buttons {
         grid-template-columns: 1fr;
     }
-
+    
     .container {
         padding: 0.5rem;
     }
-
-    .workout-selector,
-    .workout-display {
-        padding: 1rem;
-    }
-
-    .exercise-item {
-        padding: 0.75rem;
-    }
-
-    .exercise-details h3 {
-        font-size: 0.9375rem;
-    }
-
-    .exercise-details p {
-        font-size: 0.8125rem;
-    }
-
-    .print-workout-btn {
-        width: 100%;
-    }
 }
 
-/* Print Styles */
 @media print {
     body {
         background-color: white;
         color: black;
     }
 
-    .header, 
-    .workout-selector,
+    .workout-buttons,
+    .generate-btn,
     .print-workout-btn {
         display: none;
     }
 
     .workout-display {
         display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
         background-color: white;
+        color: black;
         border: none;
-        padding: 0;
     }
 
-    .exercise-item {
+    .workout-display h2,
+    .workout-display h3 {
+        color: black;
+    }
+
+    .workout-display li {
+        background-color: white;
         border: 1px solid #ddd;
-        background-color: white;
-        break-inside: avoid;
-    }
-
-    .exercise-number {
-        border: 1px solid #000;
-        background-color: white;
-        color: black;
-    }
-
-    .exercise-details h3 {
-        color: black;
-    }
-
-    .exercise-details p {
-        color: #333;
     }
 }
