@@ -22,6 +22,10 @@
         <div id="workoutDisplay" class="workout-display">
             <!-- Workout will be displayed here -->
         </div>
+
+        <button id="printWorkout" class="print-workout-btn" style="display: none;">
+            Print Workout
+        </button>
     </div>
 
     <!-- Include workout data files first -->
@@ -29,106 +33,6 @@
     <script src="lower_workouts.js"></script>
     <script src="core_workouts.js"></script>
     <script src="full_workouts.js"></script>
-
-    <script>
-        let selectedWorkoutType = null;
-
-        // Add click event listeners to workout type buttons
-        document.querySelectorAll('.workout-type-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.workout-type-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                selectedWorkoutType = this.id;
-            });
-        });
-
-        // Generate workout function
-        function generateWorkout() {
-            if (!selectedWorkoutType) {
-                alert('Please select a workout type first!');
-                return;
-            }
-
-            const workoutDisplay = document.getElementById('workoutDisplay');
-            let workouts;
-
-            switch(selectedWorkoutType) {
-                case 'upperBody':
-                    workouts = upperWorkouts;
-                    break;
-                case 'lowerBody':
-                    workouts = lowerWorkouts;
-                    break;
-                case 'core':
-                    workouts = coreWorkouts;
-                    break;
-                case 'fullBody':
-                    workouts = fullWorkouts;
-                    break;
-            }
-
-            // Get random workout number
-            const workoutKeys = Object.keys(workouts);
-            const randomWorkout = workouts[workoutKeys[Math.floor(Math.random() * workoutKeys.length)]];
-
-            // Display workout
-            let workoutHTML = `<h2>${randomWorkout.title}</h2>`;
-
-            if (randomWorkout.type) {
-                workoutHTML += `<p class="workout-type">${randomWorkout.type}</p>`;
-            }
-
-            if (randomWorkout.exercises) {
-                workoutHTML += '<ul>';
-                randomWorkout.exercises.forEach(exercise => {
-                    workoutHTML += `<li>${exercise}</li>`;
-                });
-                workoutHTML += '</ul>';
-            }
-
-            if (randomWorkout.circuits) {
-                randomWorkout.circuits.forEach(circuit => {
-                    workoutHTML += `<div class="circuit">
-                        <h3>${circuit.name}</h3>`;
-                    if (circuit.rounds) {
-                        workoutHTML += `<p>${circuit.rounds} rounds</p>`;
-                    }
-                    workoutHTML += '<ul>';
-                    circuit.exercises.forEach(exercise => {
-                        workoutHTML += `<li>${exercise}</li>`;
-                    });
-                    workoutHTML += '</ul></div>';
-                });
-            }
-
-            if (randomWorkout.sections) {
-                randomWorkout.sections.forEach(section => {
-                    workoutHTML += `<div class="section">
-                        <h3>${section.name}</h3>`;
-                    if (section.rounds) {
-                        workoutHTML += `<p>${section.rounds} rounds</p>`;
-                    }
-                    if (section.type) {
-                        workoutHTML += `<p>${section.type}</p>`;
-                    }
-                    workoutHTML += '<ul>';
-                    section.exercises.forEach(exercise => {
-                        workoutHTML += `<li>${exercise}</li>`;
-                    });
-                    workoutHTML += '</ul></div>';
-                });
-            }
-
-            workoutDisplay.innerHTML = workoutHTML;
-        }
-
-        // Add click event listener to generate button
-        document.getElementById('generateWorkout').addEventListener('click', generateWorkout);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
